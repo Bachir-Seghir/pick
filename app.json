@@ -1,0 +1,47 @@
+{
+  "expo": {
+    "name": "uber-frontend",
+    "slug": "uber-frontend",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.uberClone",
+      "config": {
+        "googleMapsApiKey": "AIzaSyAUfLdHLAEDpDe87RQEI7k5tZsLNxb48AY"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.uberClone",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAUfLdHLAEDpDe87RQEI7k5tZsLNxb48AY"
+        },
+        "permissions": [
+          "ACCESS_COARSE_LOCATION",
+          "ACCESS_FINE_LOCATION",
+          "FOREGROUND_SERVICE"
+        ]
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
