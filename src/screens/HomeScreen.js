@@ -10,7 +10,7 @@ import { StatusBar } from 'expo-status-bar'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     const _map = useRef(1)
     const [coordinates, setCoordinates] = useState({})
 
@@ -65,9 +65,13 @@ const HomeScreen = () => {
                     <View style={styles.view1}>
                         <View style={styles.view8}>
                             <Text style={styles.text2}>Read a book. Take a nap. Stare out th window</Text>
-                            <View style={styles.button1}>
-                                <Text style={styles.button1Text}>Ride with Uder</Text>
-                            </View>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("RequestScreen")}
+                            >
+                                <View style={styles.button1}>
+                                    <Text style={styles.button1Text}>Ride with Uder</Text>
+                                </View>
+                            </TouchableOpacity>
                         </View>
                         <View >
                             <Image style={styles.image1}
