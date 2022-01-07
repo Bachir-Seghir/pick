@@ -8,10 +8,26 @@ export default class MapComponent extends Component {
     constructor() {
         super()
         this.state = {
-
         }
 
         this._map = React.createRef(35)
+    }
+    componentDidUpdate() {
+        setInterval(() => {
+            if (this.props.userDestination.latitude !== null) {
+                this._map.current.fitToCoordinates(
+                    [this.props.userOrigin, this.props.userDestination], {
+                    edgePadding: {
+                        top: 150,
+                        right: 50,
+                        left: 50,
+                        bottom: 150
+                    },
+                    animated: true
+                }
+                )
+            }
+        }, 500);
     }
     render() {
         return (
@@ -23,6 +39,24 @@ export default class MapComponent extends Component {
                     customMapStyle={mapStyle}
 
                 >
+                    {this.props.userOrigin.latitude != null && <MapView.Marker
+                        coordinate={this.props.userOrigin} anchor={{ x: 0.5, y: 0.5 }}
+                    >
+                        <Image
+                            source={require('../../assets/location.png')}
+                            style={styles.markerOrigin2}
+                            resizeMode='cover'
+                        />
+                    </MapView.Marker>}
+                    {this.props.userDestination.latitude != null && <MapView.Marker
+                        coordinate={this.props.userDestination} anchor={{ x: 0.5, y: 0.5 }}
+                    >
+                        <Image
+                            source={require('../../assets/location.png')}
+                            style={styles.markerDestination}
+                            resizeMode='cover'
+                        />
+                    </MapView.Marker>}
 
                 </MapView>
             </View>

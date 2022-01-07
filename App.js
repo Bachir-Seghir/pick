@@ -1,11 +1,17 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { DestinationContextProvider, OriginContextProvider } from './src/contexts/contexts'
 import RootNavigator from './src/navigations/RootNavigator'
 
 
 const App = () => {
   return (
-    <RootNavigator />
+    <DestinationContextProvider>
+
+      <OriginContextProvider>
+        <RootNavigator />
+      </OriginContextProvider>
+    </DestinationContextProvider>
   )
 }
 
